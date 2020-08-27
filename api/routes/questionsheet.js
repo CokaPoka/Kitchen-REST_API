@@ -37,8 +37,8 @@ router.post('/', upload.any(), function (req, res, next) {
 
     var mailOptions = {
         from: 'cokapokajelena@gmail.com',
-        replyto: 'jelenakikovic@yahoo.com',
-        to: 'jelenakikovic@yahoo.com',
+        replyto: 'nikolakikovic@gmail.com',
+        to: 'nikolakikovic@gmail.com',
         subject: 'Nikola Kikovic upitnik-fotke',
         text: 'Fotke iz upitnika:',
         attachments: [
@@ -48,17 +48,17 @@ router.post('/', upload.any(), function (req, res, next) {
                 path: `./image/${req.files[0].originalname}`,
             },
             {
-                filename: 'plan',
+                filename: 'plan1',
                 contentType: 'image/jpeg',
                 path: `./image/${req.files[1].originalname}`,
             },
             {
-                filename: 'plan',
+                filename: 'plan2',
                 contentType: 'image/jpeg',
                 path: `./image/${req.files[2].originalname}`,
             },
             {
-                filename: 'plan',
+                filename: 'plan3',
                 contentType: 'image/jpeg',
                 path: `./image/${req.files[3].originalname}`,
             }
