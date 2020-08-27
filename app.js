@@ -14,6 +14,7 @@ const app = express();
 
 app.use('/uploads',express.static('uploads'));
 app.use('/blogimages', express.static('blogimages'));
+app.use('/image', express.static('image'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
