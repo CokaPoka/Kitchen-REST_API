@@ -20,7 +20,7 @@ var smtpTransport = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: "cokapokajelena@gmail.com",
-        pass: "cokapoka123"
+        pass: "Malicokac123"
     },
     tls: {
         rejectUnauthorized: false
@@ -48,17 +48,17 @@ router.post('/', upload.any(), function (req, res, next) {
                 path: `./image/${req.files[0].originalname}`,
             },
             {
-                filename: 'prozor',
+                filename: 'plan',
                 contentType: 'image/jpeg',
                 path: `./image/${req.files[1].originalname}`,
             },
             {
-                filename: 'prozor',
+                filename: 'plan',
                 contentType: 'image/jpeg',
                 path: `./image/${req.files[2].originalname}`,
             },
             {
-                filename: 'prozor',
+                filename: 'plan',
                 contentType: 'image/jpeg',
                 path: `./image/${req.files[3].originalname}`,
             }
