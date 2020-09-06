@@ -34,7 +34,7 @@ router.get('/', (req, res, next) => {
                         date: doc.date,
                         request: {
                             type: 'GET',
-                            url: 'http://localhost:4000/gallery/' + doc._id
+                            url: 'https://ndesignserver.herokuapp.com/gallery/' + doc._id
                         }
                     }
                 })
@@ -64,7 +64,7 @@ router.post('/', upload.single('image'),(req, res, next) => {
                 date: result.date,
                 request: {
                     type: 'GET',
-                    url: 'http://localhost:4000/gallery/' + result._id
+                    url: 'https://ndesignserver.herokuapp.com/gallery/' + result._id
                 }
             }
         });

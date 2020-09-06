@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const cors = require('cors');
 
-// require('dotenv').config();
+dotenv.config();
 
 const galleryRoutes = require('./api/routes/gallery');
 
@@ -37,7 +38,7 @@ app.use('/blog', blogRoutes);
 app.use('/questionsheet', questionsheetRoutes);
 
 
-mongoose.connect('mongodb+srv://coka:Cokapoka123@cluster0-fjklc.mongodb.net/kitchen?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://coka:' + process.env.MONGODB_URI + '@cluster0-fjklc.mongodb.net/kitchen?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
