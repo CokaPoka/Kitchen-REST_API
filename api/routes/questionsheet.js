@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const multer = require('multer');
 
@@ -19,8 +22,8 @@ var upload = multer({ storage: storage });
 var smtpTransport = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: "cokapokajelena@gmail.com",
-        pass: "Malicokac123"
+        user: `${process.env.USER}`,
+        pass: `${process.env.PASS}`
     },
     tls: {
         rejectUnauthorized: false
@@ -36,10 +39,10 @@ router.post('/', upload.any(), function (req, res, next) {
     res.send(req.files[0]);
 
     var mailOptions = {
-        from: 'cokapokajelena@gmail.com',
-        replyto: 'nikolakikovic@gmail.com',
-        to: 'nikolakikovic@gmail.com',
-        subject: 'Nikola Kikovic upitnik-fotke',
+        from: `${process.env.EMAIL_FROM}`,
+        replyto: `${process.env.EMAIL_REPLYTO}`,
+        to: `${process.env.EMAIL_TO}`,
+        subject: 'ndesignkitchen upitnik-fotke',
         text: 'Fotke iz upitnika:',
         attachments: [
             {
@@ -68,7 +71,6 @@ router.post('/', upload.any(), function (req, res, next) {
     smtpTransport.sendMail(mailOptions, (error, response) => {
         if (error) {
             console.log(error);
-            console.log("whatever")
             res.send(error);
         } else {
             console.log("Message sent: " + response.response);
