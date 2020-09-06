@@ -29,7 +29,7 @@ Example response:
 
 ```json
 {
-    "count": 20,
+    "count": 2,
     "photos": [
         {
             "_id": "5f46259f1fab123174a142ec",
@@ -57,14 +57,14 @@ Example response:
 
 Method: POST
 
-URL: <https://saladbarserver.herokuapp.com/users/login>
+URL: <https://ndesignserver.herokuapp.com/gallery>
 
 Example request body:
 
-```json
+```jpeg
 {   
-  "username": "ana",
-  "password": "password123"
+  Content-Disposition: form-data; name="image"
+  Content-Type: image/jpeg 
 }
 ```
 
@@ -72,8 +72,15 @@ Example response:
 
 ```json
 {
-    "message": "Auth successful",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuYSIsInVzZXJJZCI6IjVlY2VkZTA3ODg4YjQyMDAxNzRkMDQ0ZiIsImlhdCI6MTU5MDYxNTYwNiwiZXhwIjoxNTkwNjE5MjA2fQ.VolaESkyIALVeOxN6Cpgz4wVtymj0T5__bFBxEWmeuI"
+    "message": "Added photo successfully",
+    "createdPhoto": {
+        "_id": "5f550002e12ce70004a7f760",
+        "date": "1599406082387",
+        "request": {
+            "type": "GET",
+            "url": "http://localhost:4000/gallery/5f550002e12ce70004a7f760"
+        }
+    }
 }
 ```
 ### Get all users

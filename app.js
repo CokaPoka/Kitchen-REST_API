@@ -7,14 +7,11 @@ dotenv.config();
 
 const galleryRoutes = require('./api/routes/gallery');
 
-const blogRoutes = require('./api/routes/blog');
-
 const questionsheetRoutes = require('./api/routes/questionsheet');
 
 const app = express();
 
 app.use('/uploads',express.static('uploads'));
-app.use('/blogimages', express.static('blogimages'));
 app.use('/image', express.static('image'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,7 +31,6 @@ app.use(cors());
 // })
 
 app.use('/gallery', galleryRoutes);
-app.use('/blog', blogRoutes);
 app.use('/questionsheet', questionsheetRoutes);
 
 
